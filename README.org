@@ -1,0 +1,28 @@
+* Study
+
+** Source Pages for Questions
+
+[[https://www.careercup.com][Careercup]]
+[[http://codercareer.blogspot.co.uk/][CoderCareer]]
+
+
+** Question 1
+
+[[https://www.careercup.com/question?id=5745795300065280][Link to Source]]
+
+Given a string of numbers, you can add a + or * sign between any two numbers,
+find the maximum value you can get ex. s = "89" -> 8 * 9 = 72
+
+#+BEGIN_SRC
+int maxNumberString(String s)
+#+END_SRC
+
+[[file:question-1.rb][Question 1 Solution]]
+
+
+** Question 2
+
+http://codercareer.blogspot.co.uk/p/binary-tree-interview-questions.html
+
+Convert a binary search tree to a sorted double-linked list. We can only change
+the target of pointers, but cannot create any new nodes.
