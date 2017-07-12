@@ -1,10 +1,3 @@
-# Notes:
-# - Numbers can not be negative since we use the digits of a string and a negative number is > 1 symbol
-# - 0 is special as it multiplying by 0 will always make the result <= to what it was so 0 needs to always be surronded by `+`
-# - 1 is special as multiplying by 1 will always keep the result = to the before, while adding would increase
-# - 1 means it is undecidable if the result should be mul or add, therefor we need to backtrack potentially
-
-
 def eval_factor expr
   value = expr.shift
   raise ArgumentError, "#{value} not a number" unless value.is_a? Numeric
