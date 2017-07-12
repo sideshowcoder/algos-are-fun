@@ -44,9 +44,9 @@ def max_number_rec(expr, nums)
 
   numbers = nums.dup
   current = numbers.shift
-  current_value = eval_expr expr.dup
+  prev = expr.last
 
-  if current_value.zero? || current.zero?
+  if prev.zero? || current.zero?
     max_number_rec(expr + [:add, current], numbers)
   else
     [
@@ -66,3 +66,4 @@ p max_number("2")
 p max_number("21")
 p max_number("214")
 p max_number("21114")
+p max_number("21012")
