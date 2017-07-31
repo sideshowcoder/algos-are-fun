@@ -2,7 +2,7 @@
 
 ** Source Pages for Questions
 
-[[https://www.careercup.com][- Careercup]]
+- [[https://www.careercup.com][Careercup]]
 - [[http://codercareer.blogspot.co.uk/][CoderCareer]]
 - [[http://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/][Algo]]
 
