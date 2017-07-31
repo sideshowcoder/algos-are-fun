@@ -32,12 +32,17 @@ Ruby would allow building a string with the options but if we don't want to eval
 a string we can build an expression and eval that expression. For evaluation a
 recursive decent parser inspired eval would do the trick.
 
-[[file:question-1.rb][Question 1 Solution]]
+[[file:question_1.rb][Question 1 Solution]]
 
+** Kadanes Algorithm
 
-** Question 2
+[[https://www.youtube.com/watch?v=86CQq3pKSUw][Kadanes Algorithm explained]]
 
-http://codercareer.blogspot.co.uk/p/binary-tree-interview-questions.html
+Find the maximum sum subarray
 
-Convert a binary search tree to a sorted double-linked list. We can only change
-the target of pointers, but cannot create any new nodes.
+*** Notes
+
+- Keep track of the maximum in the current run, and the global maximum to return
+- The maximum in the current run is updated by determining the maximum of adding
+  the next number to the current max, should that maximum drop we start a new
+  run
