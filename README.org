@@ -46,3 +46,14 @@ Find the maximum sum subarray
 - The maximum in the current run is updated by determining the maximum of adding
   the next number to the current max, should that maximum drop we start a new
   run
+
+** Rotate Array
+
+[[http://www.programcreek.com/2015/03/rotate-array-in-java/][Rotate Array]]
+
+Rotate an array of n elements to the right by k steps.
+
+For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to
+[5,6,7,1,2,3,4]. How many different ways do you know to solve this problem?
+
+[[file:rotate_array.rb][Rotate Array Solution]]
