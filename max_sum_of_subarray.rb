@@ -1,4 +1,5 @@
-# Find the maximum sum subarray
+# Find the maximum sum continuous subarray
+# known as Kadene's algorithm
 
 def max_sum(array)
   current_max = global_max = array.shift
@@ -12,7 +13,6 @@ def max_sum(array)
 
   global_max
 end
-
 
 p max_sum [1, -1, 3, 1, -2]
 p max_sum [-2, 1, -3, 4, -1, 2, 1, -5, 4]

@@ -1,15 +1,24 @@
+# Rotate an array by k steps
+# [1,2,3,4,5,6,7] with k = 3 would become [5,6,7,1,2,3,4]
+
+
+# optimized:
+# don't rotate one at a time but slice of the end k items and prepend
 def rotate_array(array, steps)
   steps = steps % array.size
   return array if steps.zero?
 
-  tail_end = array.size - 1
   tail_start = array.size - steps
   tail = array.slice!(tail_start, array.size)
 
   array.insert(0, *tail)
 end
 
-
+# naive:
+# for the number of steps pop element of the end and prepend it to the front
+#
+# optimized so we don't overrotate meaning array [1,2,3] with k = 10 would do
+# k % 3 = 1 steps not 10
 def rotate_array_naive(array, steps)
   steps = steps % array.size
   return array if steps.zero?
@@ -23,7 +32,6 @@ p rotate_array [1,2,3], 3 # => [5,6,7,1,2,3,4]
 
 p rotate_array_naive [1,2,3,4,5,6,7], 3 # => [5,6,7,1,2,3,4]
 p rotate_array_naive [1,2,3], 3 # => [5,6,7,1,2,3,4]
-
 
 require "benchmark"
 
