@@ -1,5 +1,6 @@
 # Rotate an array by k steps
 # [1,2,3,4,5,6,7] with k = 3 would become [5,6,7,1,2,3,4]
+# https://www.programcreek.com/2015/03/rotate-array-in-java/
 
 
 # optimized:

@@ -1,5 +1,6 @@
 # Find the maximum sum continuous subarray
 # known as Kadene's algorithm
+# https://leetcode.com/problems/maximum-subarray/
 
 def max_sum(array)
   current_max = global_max = array.shift

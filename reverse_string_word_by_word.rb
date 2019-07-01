@@ -1,5 +1,6 @@
 # Reverse the words in a string
 # "foo bar baz" becomes "baz bar foo"
+# https://www.programcreek.com/2014/05/leetcode-reverse-words-in-a-string-ii-java/
 
 def my_reverse_sub(array, head, tail)
   while head < tail
