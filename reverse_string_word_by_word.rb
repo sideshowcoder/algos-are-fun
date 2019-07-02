@@ -20,9 +20,13 @@ def my_reverse(array)
   my_reverse_sub(array, head, tail)
 end
 
-a = "foobar"
-p my_reverse_sub(a, 3, 5)
-p a
+class ReverseTest < Minitest::Test
+  def test_reverse_inline
+    a = "foobar"
+    my_reverse_sub(a, 3, 5)
+    assert_equal a, "foorab"
+  end
+end
 
 # Allocating an extra array to do the reversal
 def reverse_word_by_word_naive(s)
@@ -51,8 +55,16 @@ def reverse_word_by_word_optimized(s)
   my_reverse(s)
 end
 
-p reverse_word_by_word_naive "foo bar baz"
-p reverse_word_by_word_optimized "foo bar baz"
-p reverse_word_by_word_optimized ""
-p reverse_word_by_word_optimized " "
-p reverse_word_by_word_optimized " foo bar baz "
+
+class ReverseByWordTest < Minitest::Test
+  def test_reverse_by_word
+    assert_equal "baz bar foo", reverse_word_by_word_naive("foo bar baz")
+  end
+
+  def test_reverse_by_word_optimized
+    assert_equal "baz bar foo", reverse_word_by_word_optimized("foo bar baz")
+    assert_equal "", reverse_word_by_word_optimized("")
+    assert_equal " ", reverse_word_by_word_optimized(" ")
+    assert_equal " baz bar foo ", reverse_word_by_word_optimized(" foo bar baz ")
+  end
+end

@@ -2,6 +2,7 @@
 # [1,2,3,4,5,6,7] with k = 3 would become [5,6,7,1,2,3,4]
 # https://www.programcreek.com/2015/03/rotate-array-in-java/
 
+require "minitest/autorun"
 
 # optimized:
 # don't rotate one at a time but slice of the end k items and prepend
@@ -28,18 +29,24 @@ def rotate_array_naive(array, steps)
   array
 end
 
-p rotate_array [1,2,3,4,5,6,7], 3 # => [5,6,7,1,2,3,4]
-p rotate_array [1,2,3], 3 # => [5,6,7,1,2,3,4]
+class TestRotate < Minitest::Test
+  def test_optimized_rotate
+    assert_equal [5,6,7,1,2,3,4], rotate_array([1,2,3,4,5,6,7], 3)
+    assert_equal [1,2,3], rotate_array([1,2,3], 3)
+  end
 
-p rotate_array_naive [1,2,3,4,5,6,7], 3 # => [5,6,7,1,2,3,4]
-p rotate_array_naive [1,2,3], 3 # => [5,6,7,1,2,3,4]
-
-require "benchmark"
-
-array = (1..1000).to_a
-steps = 100
-
-Benchmark.bm(10) do |x|
-  x.report("naive:")   { 100000.times { rotate_array_naive(array, steps) } }
-  x.report("optimized:") { 100000.times { rotate_array(array, steps) } }
+  def test_rotate
+    assert_equal [5,6,7,1,2,3,4], rotate_array_naive([1,2,3,4,5,6,7], 3)
+    assert_equal [1,2,3], rotate_array_naive([1,2,3], 3)
+  end
 end
+
+# require "benchmark"
+
+# array = (1..1000).to_a
+# steps = 100
+
+# Benchmark.bm(10) do |x|
+#   x.report("naive:")   { 100000.times { rotate_array_naive(array, steps) } }
+#   x.report("optimized:") { 100000.times { rotate_array(array, steps) } }
+# end

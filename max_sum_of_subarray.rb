@@ -2,6 +2,8 @@
 # known as Kadene's algorithm
 # https://leetcode.com/problems/maximum-subarray/
 
+require "minitest/autorun"
+
 def max_sum(array)
   current_max = global_max = array.shift
 
@@ -15,5 +17,9 @@ def max_sum(array)
   global_max
 end
 
-p max_sum [1, -1, 3, 1, -2]
-p max_sum [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+class MaxSumTest < Minitest::Test
+  def test_max_sum
+    assert_equal 4, max_sum([1, -1, 3, 1, -2])
+    assert_equal 6, max_sum([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+  end
+end
