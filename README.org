@@ -6,3 +6,7 @@
 - [[http://codercareer.blogspot.co.uk/][CoderCareer]]
 - [[http://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/][Algo]]
 
+** Using Ruby, Rake and Minitest
+
+- Using .ruby-version to specify a recent ruby, install via rbenv
+- Rakefile for running tests use rake test TEST=algo_file.rb to run a single test file or rake to run all
