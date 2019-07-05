@@ -33,7 +33,6 @@ def word_ladder(from, to, dictionary)
 end
 
 class WordLadderTest < Minitest::Test
-
   def test_valid_transformation
     assert valid_transformation?("hot", "dot")
     refute valid_transformation?("hot", "ho")
