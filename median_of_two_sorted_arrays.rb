@@ -71,27 +71,62 @@ def median_two_arrays_naive(a1, a2)
   median
 end
 
+# Don't copy the arrays to search instead keep track of current search space via
+# start and end
+def kth(a1, a1_start, a1_end, a2, a2_start, a2_end, k)
+  # how to recalculate the search space?
+end
+
 def median_two_arrays_optimized(a1, a2)
-  # runtime should be O(log(m+n)) meaning instead of stepping through the arrays
-  # one by one we jump in a kind of binary search.
+  total_size = a1.size + a2.size
+  k = total_size / 2
+
+  # Only 1 element total for k.zero? meaning return this element
+  return [a1[0], a2[0]].compact.min if k.zero?
+
+  if total_size.even?
+    # no true median, need to calculate (k + k-1) / 2
+    (kth(a1, 0, a1.size - 1, a2, 0, a2.size - 1, k) +
+     kth(a1, 0, a1.size - 1, a2, 0, a2.size - 1, k - 1))/2.0
+  else
+    kth(a1, 0, a1.size - 1, a2, 0, a2.size - 1, k)
+  end
 end
 
 class Median2ArrayTest < Minitest::Test
-  def test_1_empty_array
-    assert_equal 2, median_two_arrays_naive([1,2,3], [])
-    assert_equal 2, median_two_arrays_naive([], [1,2,3])
-    assert_equal 1, median_two_arrays_naive([1], [])
+  # def test_1_empty_array
+  #   assert_equal 2, median_two_arrays_naive([1,2,3], [])
+  #   assert_equal 2, median_two_arrays_naive([], [1,2,3])
+  #   assert_equal 1, median_two_arrays_naive([1], [])
+  # end
+
+  # def test_k_not_even
+  #   assert_equal 2, median_two_arrays_naive([1,2,3], [1,2])
+  #   assert_equal 3, median_two_arrays_naive([1,2,3], [4,5])
+  #   assert_equal 3, median_two_arrays_naive([4,5], [1,2,3])
+  #   assert_equal 3, median_two_arrays_naive([2,5], [1,3,5])
+  # end
+
+  # def test_k_even
+  #   assert_equal 2, median_two_arrays_naive([1,3], [1,3])
+  #   assert_equal 1.5, median_two_arrays_naive([1,2], [1,2])
+  # end
+
+  def test_1_empty_array_optimized
+    assert_equal 1, median_two_arrays_optimized([1], [])
+    assert_equal 2, median_two_arrays_optimized([1,2,3], [])
+  #   assert_equal 2, median_two_arrays_optimized([], [1,2,3])
   end
 
-  def test_k_not_even
-    assert_equal 2, median_two_arrays_naive([1,2,3], [1,2])
-    assert_equal 3, median_two_arrays_naive([1,2,3], [4,5])
-    assert_equal 3, median_two_arrays_naive([4,5], [1,2,3])
-    assert_equal 3, median_two_arrays_naive([2,5], [1,3,5])
-  end
+  # def test_k_not_even_optimized
+  #   assert_equal 2, median_two_arrays_optimized([1,2,3], [1,2])
+  #   assert_equal 3, median_two_arrays_optimized([1,2,3], [4,5])
+  #   assert_equal 3, median_two_arrays_optimized([4,5], [1,2,3])
+  #   assert_equal 3, median_two_arrays_optimized([2,5], [1,3,5])
+  # end
 
-  def test_k_even
-    assert_equal 2, median_two_arrays_naive([1,3], [1,3])
-    assert_equal 1.5, median_two_arrays_naive([1,2], [1,2])
-  end
+  # def test_k_even_optimized
+  #   assert_equal 2, median_two_arrays_optimized([1,3], [1,3])
+  #   assert_equal 1.5, median_two_arrays_optimized([1,2], [1,2])
+  # end
 end
