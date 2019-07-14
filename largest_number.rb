@@ -1,7 +1,6 @@
 # https://www.programcreek.com/2014/02/leetcode-largest-number-java/ Find the
 # largest number that can be composed of an array of strings
 
-
 require "minitest/autorun"
 
 def largest_number(a)
