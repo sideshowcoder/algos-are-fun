@@ -1,0 +1,6 @@
+apply plugin: 'java'
+ext.mainClass = project.getProperty('mainClass')
+apply plugin:'application' ;
+mainClassName = ext.mainClass
+
+applicationDefaultJvmArgs = ["-ea"]

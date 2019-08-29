@@ -1,5 +1,3 @@
-package app;
-
 public class Atoi {
 
   private static int atoi(final String rawString) {
