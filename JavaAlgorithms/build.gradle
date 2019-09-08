@@ -1,5 +1,5 @@
 apply plugin: 'java'
-ext.mainClass = project.findProperty('mainClass') ?: "LargestNumber"
+ext.mainClass = project.findProperty('mainClass') ?: "Quicksort"
 apply plugin:'application'
 mainClassName = ext.mainClass
 
