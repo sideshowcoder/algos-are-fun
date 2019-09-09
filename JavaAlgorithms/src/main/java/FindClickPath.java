@@ -1,7 +1,7 @@
-import java.util.ArrayList;
+import com.google.common.collect.ImmutableList;
+
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Currency;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -18,12 +18,12 @@ public class FindClickPath {
     final Map<String, String> fromTo = path.stream()
         .collect(Collectors.toMap((a) -> a.get(0), (a) -> a.get(1)));
 
-    List<String> resultPath = new ArrayList<>();
+    final ImmutableList.Builder<String> result = ImmutableList.builder();
     Set<String> visited = new HashSet<>();
     String current = fromTo.get(start);
 
     do {
-      resultPath.add(current);
+      result.add(current);
       current = fromTo.get(current);
 
       if (visited.contains(current)) {
@@ -33,7 +33,7 @@ public class FindClickPath {
       }
     } while (current != null);
 
-    return resultPath;
+    return result.build();
   }
 
   public static void main(String... args) {
