@@ -9,7 +9,8 @@ dependencies {
 }
 
 ext.mainClass = project.findProperty('mainClass') ?: "Quicksort"
+ext.mainClass = project.findProperty('mainClass') ?: "FindClickPath"
+
 apply plugin:'application'
 mainClassName = ext.mainClass
-
 applicationDefaultJvmArgs = ["-ea"]
