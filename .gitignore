@@ -1,2 +1,8 @@
 JavaAlgorithms/bin/**/*
 JavaAlgorithms/.gradle/**/*
+/JavaAlgorithms/.project
+gradle/**/*
+/JavaAlgorithms/gradle/**/*
+/JavaAlgorithms/gradlew
+/JavaAlgorithms/gradlew.bat
+/JavaAlgorithms/out/**/*
